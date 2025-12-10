@@ -3,59 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crispy Chicken Salad – Recettes</title>
+    <title>Crispy Chicken Salad Selector</title>
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f7f4;
             padding: 20px;
+            margin: 0;
         }
+
         .container {
             max-width: 900px;
             margin: auto;
             background: white;
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
         }
+
         h1 {
             text-align: center;
             color: #2e7d32;
         }
-        .recipe {
-            margin-bottom: 40px;
-        }
-        .recipe h2 {
-            color: #388e3c;
-            margin-bottom: 10px;
+
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin: 20px 0;
+            border-radius: 8px;
         }
 
-        /* Image responsive centrée */
-        .img-center {
-            text-align: center;
-            margin: 15px 0;
+        .recipe {
+            display: none;
+            margin-top: 30px;
         }
-        .img-center img {
-            width: 60%;
+
+        .recipe img {
+            display: block;
+            margin: 15px auto;
+            width: 90%;
             max-width: 350px;
             border-radius: 12px;
         }
 
-        /* Liste */
         ul, ol {
-            margin-left: 25px;
-        }
-
-        /* Responsive mobile */
-        @media (max-width: 600px) {
-            .img-center img {
-                width: 90%;
-            }
-            .container {
-                padding: 15px;
-            }
+            margin-left: 20px;
         }
     </style>
 </head>
@@ -63,84 +57,83 @@
 <body>
 
 <div class="container">
-    <h1>CRISPY CHICKEN SALAD – 3 RECETTES</h1>
 
-    <!-- RECETTE 1 -->
-    <div class="recipe">
-        <h2>Recette 1 – Crispy Chicken Salad Classique</h2>
+    <h1>Classic Crispy Chicken Salad</h1>
 
-        <div class="img-center">
-            <img src="pic0.png" alt="Crispy Chicken Salad">
-        </div>
+    <!-- SELECTOR -->
+    <select id="recipeSelector" onchange="showRecipe()">
+        <option value="">— Choisir une version —</option>
+        <option value="american">American Crispy Chicken Salad</option>
+        <option value="italian">Italian Crispy Chicken Salad</option>
+    </select>
+
+
+    <!-- AMERICAN -->
+    <div id="american" class="recipe">
+        <h2 style="text-align:center;">American Classic Crispy Chicken Salad</h2>
+        <img src="american.png" alt="American Crispy Chicken Salad">
 
         <h3>Ingrédients :</h3>
         <ul>
-            <li>Poulet croustillant</li>
-            <li>Laitue fraîche</li>
+            <li>Poulet croustillant style américain</li>
+            <li>Laitue iceberg</li>
             <li>Tomates cerises</li>
-            <li>Maïs</li>
-            <li>Sauce ranch</li>
+            <li>Cheddar râpé</li>
+            <li>Croûtons</li>
+            <li>Sauce Ranch</li>
         </ul>
 
         <h3>Mesures :</h3>
         <ol>
-            <li>Coupez le poulet en lamelles.</li>
-            <li>Mélangez les légumes.</li>
-            <li>Ajoutez la sauce et servez.</li>
+            <li>Mélanger la laitue, tomates et cheddar.</li>
+            <li>Ajouter le poulet croustillant.</li>
+            <li>Mettre les croûtons.</li>
+            <li>Verser la sauce Ranch.</li>
         </ol>
     </div>
 
-    <!-- RECETTE 2 -->
-    <div class="recipe">
-        <h2>Recette 2 – Crispy Chicken Salad Protéinée</h2>
 
-        <div class="img-center">
-            <img src="pic1.png" alt="Crispy Chicken Salad Protéinée">
-        </div>
+    <!-- ITALIAN -->
+    <div id="italian" class="recipe">
+        <h2 style="text-align:center;">Italian Classic Crispy Chicken Salad</h2>
+        <img src="italian.png" alt="Italian Crispy Chicken Salad">
 
         <h3>Ingrédients :</h3>
         <ul>
-            <li>Poulet croustillant</li>
-            <li>Œufs durs</li>
-            <li>Concombre</li>
-            <li>Avocat</li>
-            <li>Vinaigrette légère</li>
+            <li>Poulet croustillant aux herbes italiennes</li>
+            <li>Roquette</li>
+            <li>Tomates séchées</li>
+            <li>Mozzarella</li>
+            <li>Basilic</li>
+            <li>Sauce balsamique</li>
         </ul>
 
         <h3>Mesures :</h3>
         <ol>
-            <li>Disposez les légumes dans un bol.</li>
-            <li>Ajoutez les œufs et le poulet.</li>
-            <li>Arrosez de vinaigrette.</li>
-        </ol>
-    </div>
-
-    <!-- RECETTE 3 -->
-    <div class="recipe">
-        <h2>Recette 3 – Crispy Chicken Salad Sucrée-Salée</h2>
-
-        <div class="img-center">
-            <img src="pic2.png" alt="Crispy Chicken Salad Sweet & Sour">
-        </div>
-
-        <h3>Ingrédients :</h3>
-        <ul>
-            <li>Poulet croustillant</li>
-            <li>Pomme verte</li>
-            <li>Noix caramélisées</li>
-            <li>Salade verte</li>
-            <li>Sauce miel-moutarde</li>
-        </ul>
-
-        <h3>Mesures :</h3>
-        <ol>
-            <li>Mélangez la salade et la pomme.</li>
-            <li>Ajoutez les noix et le poulet.</li>
-            <li>Ajoutez la sauce miel-moutarde.</li>
+            <li>Mélanger roquette, mozzarella et tomates séchées.</li>
+            <li>Ajouter le poulet croustillant.</li>
+            <li>Ajouter du basilic.</li>
+            <li>Finir avec du balsamique.</li>
         </ol>
     </div>
 
 </div>
+
+
+<script>
+function showRecipe() {
+    let value = document.getElementById("recipeSelector").value;
+
+    // Hide both
+    document.getElementById("american").style.display = "none";
+    document.getElementById("italian").style.display = "none";
+
+    // Show only selected
+    if (value) {
+        document.getElementById(value).style.display = "block";
+    }
+}
+</script>
 
 </body>
 </html>
