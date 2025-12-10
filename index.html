@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crispy Chicken Salad</title>
+    <title>GREENHARVEST – Recettes</title>
 
     <style>
         body {
@@ -22,29 +22,8 @@
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            text-align: center;
-            color: #2e7d32;
-        }
-
-        h2 {
-            color: #388e3c;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        select {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
-        .recipe {
-            display: none;
-            margin-top: 20px;
-        }
+        h1 { text-align: center; color: #2e7d32; }
+        h2 { color: #388e3c; text-align: center; margin-top: 20px; }
 
         .recipe img {
             display: block;
@@ -54,9 +33,16 @@
             border-radius: 10px;
         }
 
-        ul, ol {
-            margin-left: 20px;
+        select {
+            width: 100%;
+            padding: 12px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 16px;
         }
+
+        .recipe { margin-bottom: 35px; }
+        ul, ol { margin-left: 20px; }
     </style>
 </head>
 
@@ -64,52 +50,43 @@
 
 <div class="container">
 
-    <h1>Classic Crispy Chicken Salad</h1>
+    <h1>GREENHARVEST – Recettes Hebdomadaires</h1>
 
-    <!-- SELECTOR -->
+    <!-- ====================== -->
+    <!--       SECTEUR 1       -->
+    <!-- ====================== -->
+    <h2>Semaine 1 – Crispy Chicken Salad</h2>
+
     <select id="selector" onchange="showRecipe()">
         <option value="">— Choisir une version —</option>
         <option value="american">American Version</option>
         <option value="italian">Italian Version</option>
     </select>
 
-
     <!-- AMERICAN -->
-    <div id="american" class="recipe">
-        <h2>American Classic Crispy Chicken Salad</h2>
-
-        <div style="text-align:center;">
-            <img src="american.png" alt="American Crispy Chicken Salad">
-        </div>
-
+    <div id="american" class="recipe" style="display:none;">
+        <img src="american.png" alt="">
         <h3>Ingrédients :</h3>
         <ul>
-            <li>Poulet croustillant américain</li>
+            <li>Poulet croustillant US</li>
             <li>Laitue iceberg</li>
             <li>Tomates cerises</li>
-            <li>Cheddar râpé</li>
+            <li>Cheddar</li>
             <li>Croûtons</li>
             <li>Sauce Ranch</li>
         </ul>
-
         <h3>Mesures :</h3>
         <ol>
-            <li>Mélanger laitue + tomates + cheddar.</li>
-            <li>Ajouter le poulet croustillant.</li>
-            <li>Ajouter les croûtons.</li>
-            <li>Finir avec la sauce Ranch.</li>
+            <li>Mélanger la salade + tomates.</li>
+            <li>Ajouter cheddar + poulet.</li>
+            <li>Croûtons.</li>
+            <li>Ajouter sauce Ranch.</li>
         </ol>
     </div>
 
-
     <!-- ITALIAN -->
-    <div id="italian" class="recipe">
-        <h2>Italian Classic Crispy Chicken Salad</h2>
-
-        <div style="text-align:center;">
-            <img src="italian.png" alt="Italian Crispy Chicken Salad">
-        </div>
-
+    <div id="italian" class="recipe" style="display:none;">
+        <img src="italian.png" alt="">
         <h3>Ingrédients :</h3>
         <ul>
             <li>Poulet croustillant italien</li>
@@ -119,28 +96,67 @@
             <li>Basilic</li>
             <li>Sauce balsamique</li>
         </ul>
-
         <h3>Mesures :</h3>
         <ol>
-            <li>Mélanger roquette + mozzarella + tomates séchées.</li>
-            <li>Ajouter le poulet croustillant.</li>
-            <li>Ajouter du basilic.</li>
-            <li>Verser la sauce balsamique.</li>
+            <li>Mélanger roquette + mozzarella.</li>
+            <li>Ajouter poulet.</li>
+            <li>Ajouter basilic.</li>
+            <li>Sauce balsamique.</li>
+        </ol>
+    </div>
+
+
+    <!-- ====================== -->
+    <!--       SECTEUR 2       -->
+    <!-- ====================== -->
+
+    <div class="recipe">
+        <h2>Semaine 2 – Bol Énergétique Végétalien</h2>
+        <img src="pic1.png" alt="">
+        <h3>Ingrédients :</h3>
+        <ul>
+            <li>...</li>
+            <li>...</li>
+        </ul>
+        <h3>Mesures :</h3>
+        <ol>
+            <li>...</li>
+            <li>...</li>
+        </ol>
+    </div>
+
+
+    <!-- ====================== -->
+    <!--       SECTEUR 3       -->
+    <!-- ====================== -->
+
+    <div class="recipe">
+        <h2>Semaine 3 – Le Bocal Arc-en-Ciel</h2>
+        <img src="pic2.png" alt="">
+        <h3>Ingrédients :</h3>
+        <ul>
+            <li>...</li>
+            <li>...</li>
+        </ul>
+        <h3>Mesures :</h3>
+        <ol>
+            <li>...</li>
+            <li>...</li>
         </ol>
     </div>
 
 </div>
 
-
 <script>
 function showRecipe() {
-    let choice = document.getElementById("selector").value;
+    let v = document.getElementById("selector").value;
 
     document.getElementById("american").style.display = "none";
     document.getElementById("italian").style.display = "none";
 
-    if (choice)
-        document.getElementById(choice).style.display = "block";
+    if (v) {
+        document.getElementById(v).style.display = "block";
+    }
 }
 </script>
 
