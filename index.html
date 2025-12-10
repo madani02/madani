@@ -3,28 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crispy Chicken Salad Selector</title>
+    <title>Crispy Chicken Salad</title>
 
     <style>
         body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #f4f7f4;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f7f7f7;
             padding: 20px;
             margin: 0;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: auto;
-            background: white;
-            padding: 25px;
+            background: #fff;
+            padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
 
         h1 {
             text-align: center;
             color: #2e7d32;
+        }
+
+        h2 {
+            color: #388e3c;
+            text-align: center;
+            margin-top: 20px;
         }
 
         select {
@@ -37,15 +43,15 @@
 
         .recipe {
             display: none;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         .recipe img {
             display: block;
             margin: 15px auto;
+            max-width: 300px;
             width: 90%;
-            max-width: 350px;
-            border-radius: 12px;
+            border-radius: 10px;
         }
 
         ul, ol {
@@ -61,21 +67,24 @@
     <h1>Classic Crispy Chicken Salad</h1>
 
     <!-- SELECTOR -->
-    <select id="recipeSelector" onchange="showRecipe()">
+    <select id="selector" onchange="showRecipe()">
         <option value="">— Choisir une version —</option>
-        <option value="american">American Crispy Chicken Salad</option>
-        <option value="italian">Italian Crispy Chicken Salad</option>
+        <option value="american">American Version</option>
+        <option value="italian">Italian Version</option>
     </select>
 
 
     <!-- AMERICAN -->
     <div id="american" class="recipe">
-        <h2 style="text-align:center;">American Classic Crispy Chicken Salad</h2>
-        <img src="american.png" alt="American Crispy Chicken Salad">
+        <h2>American Classic Crispy Chicken Salad</h2>
+
+        <div style="text-align:center;">
+            <img src="american.png" alt="American Crispy Chicken Salad">
+        </div>
 
         <h3>Ingrédients :</h3>
         <ul>
-            <li>Poulet croustillant style américain</li>
+            <li>Poulet croustillant américain</li>
             <li>Laitue iceberg</li>
             <li>Tomates cerises</li>
             <li>Cheddar râpé</li>
@@ -85,22 +94,25 @@
 
         <h3>Mesures :</h3>
         <ol>
-            <li>Mélanger la laitue, tomates et cheddar.</li>
+            <li>Mélanger laitue + tomates + cheddar.</li>
             <li>Ajouter le poulet croustillant.</li>
-            <li>Mettre les croûtons.</li>
-            <li>Verser la sauce Ranch.</li>
+            <li>Ajouter les croûtons.</li>
+            <li>Finir avec la sauce Ranch.</li>
         </ol>
     </div>
 
 
     <!-- ITALIAN -->
     <div id="italian" class="recipe">
-        <h2 style="text-align:center;">Italian Classic Crispy Chicken Salad</h2>
-        <img src="italian.png" alt="Italian Crispy Chicken Salad">
+        <h2>Italian Classic Crispy Chicken Salad</h2>
+
+        <div style="text-align:center;">
+            <img src="italian.png" alt="Italian Crispy Chicken Salad">
+        </div>
 
         <h3>Ingrédients :</h3>
         <ul>
-            <li>Poulet croustillant aux herbes italiennes</li>
+            <li>Poulet croustillant italien</li>
             <li>Roquette</li>
             <li>Tomates séchées</li>
             <li>Mozzarella</li>
@@ -110,10 +122,10 @@
 
         <h3>Mesures :</h3>
         <ol>
-            <li>Mélanger roquette, mozzarella et tomates séchées.</li>
+            <li>Mélanger roquette + mozzarella + tomates séchées.</li>
             <li>Ajouter le poulet croustillant.</li>
             <li>Ajouter du basilic.</li>
-            <li>Finir avec du balsamique.</li>
+            <li>Verser la sauce balsamique.</li>
         </ol>
     </div>
 
@@ -122,16 +134,13 @@
 
 <script>
 function showRecipe() {
-    let value = document.getElementById("recipeSelector").value;
+    let choice = document.getElementById("selector").value;
 
-    // Hide both
     document.getElementById("american").style.display = "none";
     document.getElementById("italian").style.display = "none";
 
-    // Show only selected
-    if (value) {
-        document.getElementById(value).style.display = "block";
-    }
+    if (choice)
+        document.getElementById(choice).style.display = "block";
 }
 </script>
 
