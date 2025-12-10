@@ -10,44 +10,65 @@
             background-color: #f7f7f7;
             color: #333;
             margin: 0;
-            padding: 20px;
+            padding: 15px;
         }
         .container {
             max-width: 800px;
             margin: auto;
             background: #fff;
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
         h1 {
             text-align: center;
             color: #2e7d32;
+            font-size: 1.8rem;
         }
         h2 {
             color: #388e3c;
             margin-top: 30px;
+            font-size: 1.4rem;
         }
         .recipe {
             margin-bottom: 30px;
         }
+
+        /* 🎯 Image responsive */
+        .recipe img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Centrage image */
+        .img-center {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        /* Listes */
         .ingredients, .measures {
             margin-left: 20px;
         }
         .ingredients li, .measures li {
             margin-bottom: 5px;
         }
-        .image-placeholder {
-            width: 100%;
-            height: 200px;
-            background: #e0e0e0;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0 20px 0;
-            color: #757575;
-            font-style: italic;
+
+        /* 📱 Responsive mobile amélioré */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+            }
         }
     </style>
 </head>
@@ -55,42 +76,40 @@
 
 <div class="container">
     <h1>GREENHARVEST – Recettes Hebdomadaires de Salades en Poudre</h1>
-<!-- Semaine 1 -->
-<div class="recipe">
-    <h2>Semaine 1 – Salade de poulet croustillante</h2>
 
-    <!-- Image centrée -->
-    <div style="text-align:center; margin: 15px 0;">
-        <img src="pic0.png" alt="Salade de poulet croustillante"
-             style="width:400px; border-radius:10px;">
-    </div>
-
-    <h3>Ingrédients:</h3>
-    <ul class="ingredients">
-        <li>...</li>
-        <li>...</li>
-    </ul>
-
-    <h3>Mesures:</h3>
-    <ol class="measures">
-        <li>...</li>
-        <li>...</li>
-    </ol>
-</div>
-
-
-    <!-- Semaine 2 -->
+    <!-- Semaine 1 -->
     <div class="recipe">
-        <h2>Semaine 2 – Bol énergétique végétalien</h2>
-          <div style="text-align:center; margin: 15px 0;">
-        <img src="pic1.png" alt="Salade de poulet croustillante"
-             style="width:250px; border-radius:10px;">
-    </div>
+        <h2>Semaine 1 – Salade de poulet croustillante</h2>
+        <div class="img-center">
+            <img src="pic0.png" alt="Salade de poulet croustillante">
+        </div>
+
         <h3>Ingrédients:</h3>
         <ul class="ingredients">
             <li>...</li>
             <li>...</li>
         </ul>
+
+        <h3>Mesures:</h3>
+        <ol class="measures">
+            <li>...</li>
+            <li>...</li>
+        </ol>
+    </div>
+
+    <!-- Semaine 2 -->
+    <div class="recipe">
+        <h2>Semaine 2 – Bol énergétique végétalien</h2>
+        <div class="img-center">
+            <img src="pic1.png" alt="Bol énergétique végétalien">
+        </div>
+
+        <h3>Ingrédients:</h3>
+        <ul class="ingredients">
+            <li>...</li>
+            <li>...</li>
+        </ul>
+
         <h3>Mesures:</h3>
         <ol class="measures">
             <li>...</li>
@@ -101,15 +120,16 @@
     <!-- Semaine 3 -->
     <div class="recipe">
         <h2>Semaine 3 – Le bocal arc-en-ciel des enfants</h2>
-           <div style="text-align:center; margin: 15px 0;">
-        <img src="pic2.png" alt="Salade de poulet croustillante"
-             style="width:250px; border-radius:10px;">
-    </div>
+        <div class="img-center">
+            <img src="pic2.png" alt="Bocal arc-en-ciel des enfants">
+        </div>
+
         <h3>Ingrédients:</h3>
         <ul class="ingredients">
             <li>...</li>
             <li>...</li>
         </ul>
+
         <h3>Mesures:</h3>
         <ol class="measures">
             <li>...</li>
