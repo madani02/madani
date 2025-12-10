@@ -56,27 +56,73 @@
     </style>
 
     <script>
-        // 🔵 Recettes AMERICAN & ITALIAN
-        const recipes = {
-            american: {
-                ingredients: ["Poulet croustillant", "Laitue", "Tomates", "Sauce ranch"],
-                measures: ["Couper le poulet", "Mélanger avec la salade", "Ajouter la sauce"]
+        // 🔵 Recettes par semaine (différentes pour chaque semaine)
+        const recipesPerWeek = {
+            1: {
+                title: "Semaine 1 – Classic Crispy Chicken Salad",
+                img: "pic0.png",
+                variants: {
+                    american: {
+                        ingredients: ["Poulet croustillant", "Laitue", "Tomates", "Sauce ranch"],
+                        measures: ["Couper le poulet", "Mélanger avec la salade", "Ajouter la sauce"]
+                    },
+                    italian: {
+                        ingredients: ["Poulet grillé", "Roquette", "Olives", "Vinaigrette italienne"],
+                        measures: ["Griller le poulet", "Ajouter roquette + olives", "Verser la vinaigrette"]
+                    }
+                }
             },
-            italian: {
-                ingredients: ["Poulet grillé", "Roquette", "Olives", "Vinaigrette italienne"],
-                measures: ["Griller le poulet", "Ajouter roquette + olives", "Verser la vinaigrette"]
+            2: {
+                title: "Semaine 2 – Mediterranean Grilled Chicken Salad",
+                img: "pic1.png",
+                variants: {
+                    american: {
+                        ingredients: ["Poulet mariné", "Laitue romaine", "Avocat", "Mais"],
+                        measures: ["Faire mariner le poulet", "Griller", "Assembler les ingrédients"]
+                    },
+                    italian: {
+                        ingredients: ["Poulet au citron", "Tomates cerises", "Basilic", "Parmesan"],
+                        measures: ["Mariner au citron", "Griller le poulet", "Ajouter parmesan et basilic"]
+                    }
+                }
+            },
+            3: {
+                title: "Semaine 3 – Spicy Asian Chicken Salad",
+                img: "pic2.png",
+                variants: {
+                    american: {
+                        ingredients: ["Poulet épicé", "Chou", "Carottes", "Coriandre"],
+                        measures: ["Assaisonner le poulet", "Sauter rapidement", "Mélanger avec les légumes"]
+                    },
+                    italian: {
+                        ingredients: ["Poulet teriyaki", "Mâche", "Oignons verts", "Graines de sésame"],
+                        measures: ["Cuire le poulet teriyaki", "Disposer sur la mâche", "Saupoudrer sésame"]
+                    }
+                }
             }
         };
 
         // 🔵 Fonction mise à jour dynamique (pour chaque semaine)
         function updateRecipe(week) {
-            const choice = document.getElementById("versionChoice_" + week).value;
+            const selectEl = document.getElementById("versionChoice_" + week);
+            const choice = selectEl.value;
+            const weekData = recipesPerWeek[week];
+
+            // Mettre à jour titre et image pour la semaine
+            const titleEl = document.getElementById("title_" + week);
+            const imgEl = document.getElementById("img_" + week);
+            if (titleEl) titleEl.textContent = weekData.title;
+            if (imgEl) imgEl.src = weekData.img;
+
+            // Mettre à jour listes
+            const ingredients = weekData.variants[choice].ingredients;
+            const measures = weekData.variants[choice].measures;
 
             document.getElementById("ingredientsList_" + week).innerHTML =
-                recipes[choice].ingredients.map(i => `<li>${i}</li>`).join('');
+                ingredients.map(i => `<li>${i}</li>`).join('');
 
             document.getElementById("measuresList_" + week).innerHTML =
-                recipes[choice].measures.map(m => `<li>${m}</li>`).join('');
+                measures.map(m => `<li>${m}</li>`).join('');
         }
     </script>
 </head>
@@ -89,9 +135,9 @@
 
     <!-- 🔵 SEMAINE 1 -->
     <div class="recipe">
-        <h2>Semaine 1 – Classic Crispy Chicken Salad</h2>
+        <h2 id="title_1">Semaine 1 – Classic Crispy Chicken Salad</h2>
 
-        <img src="pic0.png">
+        <img id="img_1" src="pic0.png" alt="Semaine 1">
 
         <label><b>Choisir une version :</b></label><br>
         <select id="versionChoice_1" onchange="updateRecipe(1)">
@@ -110,9 +156,9 @@
 
     <!-- 🔵 SEMAINE 2 -->
     <div class="recipe">
-        <h2>Semaine 2 – Classic Crispy Chicken Salad</h2>
+        <h2 id="title_2">Semaine 2 – Mediterranean Grilled Chicken Salad</h2>
 
-        <img src="pic0.png">
+        <img id="img_2" src="pic1.png" alt="Semaine 2">
 
         <label><b>Choisir une version :</b></label><br>
         <select id="versionChoice_2" onchange="updateRecipe(2)">
@@ -131,9 +177,9 @@
 
     <!-- 🔵 SEMAINE 3 -->
     <div class="recipe">
-        <h2>Semaine 3 – Classic Crispy Chicken Salad</h2>
+        <h2 id="title_3">Semaine 3 – Spicy Asian Chicken Salad</h2>
 
-        <img src="pic0.png">
+        <img id="img_3" src="pic2.png" alt="Semaine 3">
 
         <label><b>Choisir une version :</b></label><br>
         <select id="versionChoice_3" onchange="updateRecipe(3)">
